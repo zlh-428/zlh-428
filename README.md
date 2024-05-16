@@ -41,6 +41,8 @@
 </samp>
 <img src="https://stats.justsong.cn/api/leetcode?username=nu-li-na-offer-d&cn=true" /><br>
 
+![zlh-428's github activity graph](https://raw.githubusercontent.com/zlh-428/zlh-428/output/github-contribution-grid-snake.svg)
+
 ### 🛠 Technologies
 
 ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
