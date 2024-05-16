@@ -1,27 +1,16 @@
-# Hi there, I'm zlh-428! 👋
+<h3><samp> Hi There , I'm zlh-428 </samp></h3>
 
-## About Me
+<samp>
+    🌱 坚持本来就是一件很有意义的事情
+</samp>
 
-I am a passionate developer with a keen interest in software development and open-source projects. I enjoy learning new technologies and constantly strive to improve my coding skills.
+<table border=0>
+  <tr>
+    <td><img src="https://github-readme-stats.vercel.app/api?username=zlh-428&show_icons=true&count_private=true&theme=vue-light&hide_border=true" alt="HuiDBK's GitHub stats" style="zoom:100%;" align="left"/></td>
+    <td><img src="https://4sdvg7tqbv.us.aircode.run/juejin?uid=2604107146988568&hide_border=true" alt="HuiDBK的掘金数据" style="zoom:100%;" align="left"/></td>
+  </tr>
+</table>
 
-## My Skills
-
-- **Languages**: JavaScript, TypeScript
-- **Web Development**: HTML, CSS, React, Node.js
-
-## Projects
-
-Here are some of the projects I have worked on:
-
-## Goals
-
-I aim to contribute more to open-source projects, collaborate with other developers, and continue expanding my knowledge in the field of software development.
-
-## Get in Touch
-
-- **GitHub**: [zlh-428](https://github.com/zlh-428)
-
-Feel free to reach out to me if you want to discuss projects, collaborations, or just chat about tech!
 
 ## Fun Fact
 
