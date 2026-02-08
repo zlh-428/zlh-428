@@ -39,8 +39,4 @@
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?logo=postman&logoColor=white)
 ![Stack Overflow](https://img.shields.io/badge/-Stack%20Overflow-FE7A16?logo=stack-overflow&logoColor=white)
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?logo=visual-studio-code&logoColor=white)
-## Fun Fact
 
-- I love playing games in my free time..
-
-<img style="background-color: #FFF;" src="https://github-readme-stats.vercel.app/api/top-langs/?username=zlh-428&layout=compact&theme=radical" /><br>
