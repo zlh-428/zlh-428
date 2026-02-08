@@ -16,8 +16,6 @@
     👀 Some information about me
 </samp>
 
-<br><br>
-
 ![zlh-428's github activity graph](https://raw.githubusercontent.com/zlh-428/zlh-428/output/github-contribution-grid-snake.svg)
 
 ### 🛠 Technologies
