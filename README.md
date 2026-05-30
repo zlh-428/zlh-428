@@ -3,16 +3,6 @@
 📍 **FrontEnd Engineer** | 🤖 **Vibe-Coding** | 🚀 **Claude Code**
 
 <br><br>
-<div align="center">
-    <div style="width: 100%; text-align: center;" align="center">
-      <a href="https://zlh-428.github.io">
-      <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=console.log(%22Hello%2C%20World%22);zlh&center=true&size=27" alt="Typing SVG" />
-      </a>
-    </div>
-    <img src="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/assets/images/coding.gif" /><br>
-</div>
-
-<br><br>
 
 ### 🛠 Technologies
 
