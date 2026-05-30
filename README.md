@@ -2,8 +2,6 @@
 
 📍 **FrontEnd Engineer** | 🤖 **Vibe-Coding** | 🚀 **Claude Code**
 
-<br><br>
-
 ### 🛠 Technologies
 
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
