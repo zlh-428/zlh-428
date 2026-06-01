@@ -14,6 +14,10 @@
 
 > Deep in vibe-coding mode – building AI-powered developer tools at ludicrous speed.
 
+### Connect
+
+- WeChat: narutoku_n
+- Email: [narutoku0428@gmail.com](mailto:narutoku0428@gmail.com)
 
 ### 🌟 GitHub Activity
 ![zlh-428's github activity graph](https://raw.githubusercontent.com/zlh-428/zlh-428/output/github-contribution-grid-snake.svg)
