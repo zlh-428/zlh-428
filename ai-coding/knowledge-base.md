@@ -129,13 +129,6 @@ flowchart TD
     
     G["context/ 业务上下文"] --> D
     H["wiki-architect-deep 产物"] -.->|"转化"| G
-    
-    style A fill:#e8f4f8,stroke:#2196F3
-    style B fill:#e8f5e9,stroke:#4CAF50
-    style C fill:#fff3e0,stroke:#FF9800
-    style D fill:#fce4ec,stroke:#E91E63
-    style E fill:#f3e5f5,stroke:#9C27B0
-    style F fill:#e0f2f1,stroke:#009688
 ```
 
 ---
@@ -188,15 +181,6 @@ flowchart TD
     H --> J["验证 AGENTS.md 准确性"]
     I --> J
     J --> K["提交 PR，由团队 Review"]
-    
-    style A fill:#e3f2fd,stroke:#1976D2
-    style B fill:#e8f5e9,stroke:#388E3C
-    style D fill:#fff8e1,stroke:#F57C00
-    style E fill:#e8f5e9,stroke:#388E3C
-    style F fill:#fce4ec,stroke:#C62828
-    style G fill:#f3e5f5,stroke:#7B1FA2
-    style J fill:#e0f2f1,stroke:#00796B
-    style K fill:#e8eaf6,stroke:#3949AB
 ```
 
 ### 3.4 注意事项与常见陷阱
@@ -376,13 +360,6 @@ flowchart LR
     F --> G
     
     G --> H["符合规范的代码"]
-    
-    style A fill:#bbdefb,stroke:#1565C0
-    style B fill:#c8e6c9,stroke:#2E7D32
-    style C fill:#ffe0b2,stroke:#E65100
-    style F fill:#f8bbd0,stroke:#880E4F
-    style G fill:#e1bee7,stroke:#4A148C
-    style H fill:#b2dfdb,stroke:#004D40
 ```
 
 ### 5.4 前端工程的特殊考量
@@ -487,13 +464,6 @@ flowchart TD
     
     L --> G
     M --> H
-    
-    style A fill:#e3f2fd,stroke:#1976D2
-    style C fill:#fce4ec,stroke:#C62828
-    style E fill:#e8f5e9,stroke:#2E7D32
-    style G fill:#f3e5f5,stroke:#7B1FA2
-    style J fill:#fff3e0,stroke:#E65100
-    style N fill:#e0f2f1,stroke:#00796B
 ```
 
 ---

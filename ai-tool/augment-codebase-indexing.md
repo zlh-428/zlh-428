@@ -57,9 +57,6 @@ graph TD
         L -- "遵循" --> P["数据最小化原则"]
         L -- "避免" --> Q["第三方API暴露"]
     end
-
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style O fill:#9cf,stroke:#333,stroke-width:2px
 ```
 
 [^1]: 实现原理：参考：[https://www.augmentcode.com/blog/a-real-time-index-for-your-codebase-secure-personal-scalable](https://www.augmentcode.com/blog/a-real-time-index-for-your-codebase-secure-personal-scalable)
