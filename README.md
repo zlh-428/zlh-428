@@ -14,6 +14,12 @@
 
 > Deep in vibe-coding mode – building AI-powered developer tools at ludicrous speed.
 
+### 🔥 Projects
+
+[![Learn Claude Code](https://img.shields.io/badge/-Learn_Claude_Code-000000?style=flat-square&logo=anthropic&logoColor=white)](https://github.com/zlh-428/claude-code-learn) ![20 lessons](https://img.shields.io/badge/lessons-20-blue) ![Agent Harness](https://img.shields.io/badge/focus-Agent_Harness_Engineering-orange)
+
+**[Learn Claude Code](https://github.com/zlh-428/claude-code-learn)** -- 从 Agent Loop 到 MCP Plugin，20 个章节系统拆解 Claude Code 的 Harness 工程架构。不是使用教程，而是工程解剖：工具定义、权限沙箱、上下文压缩、子 Agent 派生、多 Agent 团队协作、Worktree 隔离 -- 理解 AI Coding 工具的内部运转机制，才能更好地驾驭它。
+
 ### Connect
 
 - WeChat: narutoku_n
