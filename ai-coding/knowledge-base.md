@@ -167,17 +167,17 @@ wiki-architect-deep 是一个 15 Phase 的文档架构师 Skill，能从代码�
 flowchart TD
     A["执行 wiki-architect-deep Skill"] --> B["产出 knowledge-docs/ 目录"]
     B --> C["人工审核产物"]
-    
+
     C --> D{"知识类型判断"}
-    D -->|"描述性知识<br/>（现状、背景、流程）"| E[".mdp/context/ 目录"]
-    D -->|"约束性知识<br/>（限制、禁止、要求）"| F[".mdp/rules/project/ 目录"]
-    D -->|"混合型<br/>（既有描述又有约束）"| G["人工拆分后分别写入"]
-    
-    E --> H["更新 AGENTS.md 的 context 索引"]
-    F --> I["更新 AGENTS.md 的 rules 索引"]
+    D -->|"描述性知识"| E["mdp/context/ 目录"]
+    D -->|"约束性知识"| F["mdp/rules/project/ 目录"]
+    D -->|"混合型"| G["人工拆分后分别写入"]
+
+    E --> H["更新 AGENTS.md context 索引"]
+    F --> I["更新 AGENTS.md rules 索引"]
     G --> H
     G --> I
-    
+
     H --> J["验证 AGENTS.md 准确性"]
     I --> J
     J --> K["提交 PR，由团队 Review"]
