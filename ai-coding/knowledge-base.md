@@ -115,7 +115,7 @@ AGENTS.md 是这个结构的灵魂。它不是传统意义上的 README 或技�
 
 ### 2.4.1 规则层次继承关系（Mermaid）
 
-```Mermaid
+```mermaid
 flowchart TD
     A["company/ 公司级规则<br/>（架构委员会维护）"] --> B["team/ 团队级规则<br/>（团队负责人维护）"]
     B --> C["project/ 项目级规则<br/>（项目 TL 维护）"]
@@ -163,7 +163,7 @@ wiki-architect-deep 是一个 15 Phase 的文档架构师 Skill，能从代码�
 
 ### 3.3 操作流程
 
-```Mermaid
+```mermaid
 flowchart TD
     A["执行 wiki-architect-deep Skill"] --> B["产出 knowledge-docs/ 目录"]
     B --> C["人工审核产物"]
@@ -334,7 +334,7 @@ override-reason: 本项目为实时计算系统，部分异常需要静默处理
 
 ### 5.3 三层结构与 AI 消费路径
 
-```Mermaid
+```mermaid
 flowchart LR
     subgraph 规则层次
         A["company/<br/>公司级规则<br/>（最低优先级）"]
@@ -442,7 +442,7 @@ flowchart LR
 
 ### 6.5 完整的 AI Coding 工作流集成图
 
-```Mermaid
+```mermaid
 flowchart TD
     A["开发者输入<br/>（'帮我实现 XX 功能'）"] --> B["AI 代理启动"]
     B --> C["自动加载 AGENTS.md<br/>（系统提示注入）"]
