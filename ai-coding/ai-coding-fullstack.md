@@ -29,47 +29,47 @@ AI 的根本性弱点在这里暴露得最明显：**它不会主动停下来问
 
 ```mermaid
 flowchart LR
-    subgraph PREPARE["① 准备"]
-        A1["⚙️ 依赖检查\n仓库识别"] --> A2["📊 复杂度评估\nL / M / H"]
-        A2 --> A3["📋 Todo 初始化\nFSM 状态机"]
-        A3 --> A4["⚠️ 用户确认复杂度\n强制卡点"]
+    subgraph S1["① 准备"]
+        A1["依赖检查"] --> A2["复杂度评估 L/M/H"]
+        A2 --> A3["Todo 初始化"]
+        A3 --> A4["用户确认"]
     end
 
-    subgraph PLANNING["② 规划"]
-        B1["📝 需求分析\n主R确认 · 风险"] --> B2["🏗️ 技术方案\nspec-plan / tasks"]
-        B2 --> B3["✅ ReviewList 全绿\n用户逐条确认"]
-        B3 --> B4["⚠️ 用户确认方案\n强制卡点"]
+    subgraph S2["② 规划"]
+        B1["需求分析"] --> B2["技术方案"]
+        B2 --> B3["ReviewList 确认"]
+        B3 --> B4["用户确认方案"]
     end
 
-    subgraph CODING["③ 开发"]
-        C1["🌿 分支创建\nee-ones"] --> C2["💻 代码开发\n多仓库子Agent并行"]
-        C2 --> C3["🧪 单测覆盖\n行≥80% · 分支≥70%"]
-        C3 --> C4["👁️ CR + Draft PR\nCode Review"]
+    subgraph S3["③ 开发"]
+        C1["分支创建"] --> C2["多仓库Agent并行"]
+        C2 --> C3["单测覆盖>=80%"]
+        C3 --> C4["CR + Draft PR"]
     end
 
-    subgraph DELIVERY["④ 部署"]
-        D1["🚀 FSD 泳道部署"] --> D2["🌐 Talos 前端部署"]
-        D2 --> D3["🔗 过桥验证\ntraceId"]
+    subgraph S4["④ 部署"]
+        D1["FSD泳道部署"] --> D2["Talos前端部署"]
+        D2 --> D3["过桥验证"]
     end
 
-    subgraph SELFTEST["⑤ 自测"]
-        E1["🎯 自测用例\ntraceId 生成"] --> E2["📈 单测覆盖率\n泳道+fsd执行"]
+    subgraph S5["⑤ 自测"]
+        E1["自测用例"] --> E2["单测覆盖率"]
     end
 
-    subgraph WRAPUP["⑥ 交付"]
-        F1["📦 交付报告\n学城归档"] --> F2["🤖 AI 生码率\nSpec Coverage"]
-        F2 --> F3["🛡️ 质量门禁"]
-        F3 --> F4["⚠️ 用户确认门禁\n强制卡点"]
+    subgraph S6["⑥ 交付"]
+        F1["交付报告"] --> F2["AI生码率"]
+        F2 --> F3["质量门禁"]
+        F3 --> F4["用户确认"]
     end
 
-    subgraph RETROSPECT["⑦ 反思"]
-        G1["📊 客观指标采集"] --> G2["🔎 AI 流程自查\n执行偏差分析"]
-        G2 --> G3["🚨 禁止跳过\n必须执行"]
+    subgraph S7["⑦ 反思"]
+        G1["指标采集"] --> G2["流程自查"]
+        G2 --> G3["必须执行"]
     end
 
-    DONE(["✅ COMPLETED"])
+    DONE(["COMPLETED"])
 
-    PREPARE --> PLANNING --> CODING --> DELIVERY --> SELFTEST --> WRAPUP --> RETROSPECT --> DONE
+    S1 --> S2 --> S3 --> S4 --> S5 --> S6 --> S7 --> DONE
 ```
 
 Harness Engineering 的核心思路是：**不靠提示词说服 AI，靠工程约束让 AI 没有机会跑偏**。这套 AI Coding流程 的设计也是这个逻辑——它的三个核心机制，分别对应 Harness 的三个支柱：Context Engineering（让 AI 看见正确信息）、Architectural Constraints（确定性约束）、Entropy Management（防止流程腐败）。
@@ -147,43 +147,33 @@ AI 对话本质上是无状态的——每次新开对话，AI 对上一次做�
 flowchart LR
     Start(["新会话启动"]) --> Scan["扫描需求目录"]
     Scan --> Check{"进行中需求？"}
-    Check -- "是" --> Resume["选择需求\n状态恢复"]
-    Check -- "否" --> Init["新需求初始化\nSpec Init"]
-    Resume --> Judge{"判断需求\n阶段/复杂度"}
+    Check -- "是" --> Resume["状态恢复"]
+    Check -- "否" --> Init["Spec Init"]
+    Resume --> Judge{"判断阶段/复杂度"}
     Init --> Judge
 
-    SpecTools["🔌 开源 Spec 工具\nSpec-Kit · BMAD · OpenSpec"] -.-> Planning
-
-    subgraph Planning["③ 规划 PLANNING"]
-        direction TB
-        P1["需求分析\nONES · 学城 · 复杂度确认"] --> P2["技术方案 + ReviewList\nReviewList确认 → 下一步"]
+    subgraph Planning["③ 规划"]
+        P1["需求分析"] --> P2["技术方案+ReviewList"]
     end
 
-    subgraph AgentTeams["④ Agent Teams CODING"]
-        direction TB
-        Lead["主控 Agent · Orchestrator\n任务分发 · 汇总多仓库结果"]
-        BE["后端 Agent\ncoding cc agent"]
-        FE["前端 Agent\ncoding cc agent"]
-        Analyst["分析 Agent\nplanning cc agent"]
-        Tester["测试 Agent\nself-test cc agent"]
-        Lead <-.->|"Communicate & Claim Tasks"| BE
-        Lead <-.->|"Communicate & Claim Tasks"| FE
-        Lead <-.-> Analyst
-        Lead <-.-> Tester
+    subgraph AgentTeams["④ Agent Teams"]
+        Lead["主控Agent"] <-.-> BE["后端Agent"]
+        Lead <-.-> FE["前端Agent"]
+        Lead <-.-> Analyst["分析Agent"]
+        Lead <-.-> Tester["测试Agent"]
         BE <-.-> FE
     end
 
-    subgraph Delivery["⑤ 交付验证 DELIVERY"]
-        direction TB
-        D1["Cargo 泳道部署\nFSD deploy"] --> D2["Talos 前端部署\nhas_frontend=true"]
-        D2 --> D3["FSD单测 + 自测"]
-        D3 --> D4["交付报告 · PR 更新"]
+    subgraph Delivery["⑤ 交付验证"]
+        D1["Cargo泳道部署"] --> D2["Talos前端部署"]
+        D2 --> D3["FSD单测+自测"]
+        D3 --> D4["交付报告"]
     end
 
     Judge --> Planning
     Planning --> AgentTeams
     AgentTeams --> Delivery
-    Delivery --> Done(["✅ 完成"])
+    Delivery --> Done(["完成"])
 ```
 
 ### 3.1 SKILL 的层次结构
@@ -215,46 +205,26 @@ flowchart LR
 ```mermaid
 flowchart TD
     subgraph GEN["① 生成层"]
-        direction LR
-        Repo["代码仓库\nJava / React\n现有实现 · 架构模式"] -->|触发| Wiki["wiki-architect-deep\n自动提取 Skill\n代码变更触发 · 自动同步"]
-        ADR["ADR · 用户故事\n人工编写 · 决策记录"]
-        Rules["编码规范\n人工审核 · 团队共识"]
+        Repo["代码仓库"] -->|触发| Wiki["wiki-architect-deep"]
+        ADR["ADR/用户故事"]
+        Rules["编码规范"]
     end
 
-    subgraph CONTENT["② 内容层 — .knowledge/ 知识库目录结构"]
-        subgraph CTX["context/ — 描述性知识（What it is?）"]
-            direction LR
-            C1["服务地图\n系统拓扑 · 服务边界"]
-            C2["接口与约束\nThrift IDL · API 定义"]
-            C3["架构决策记录\nADR · 设计取舍"]
-            C4["用户故事\n业务流程 · 需求背景"]
-            C5["knowledge.yml\n描述性知识索引 · 自动更新"]
-        end
-
-        subgraph RULES["rules/ — 规约性知识（Should & Must）"]
-            direction LR
-            R1["company/\n公司级基线规范\nJava · 安全 · 日志"] -->|extends| R2["team/\n团队级扩展规范\n监控 · 模块拆分"] -->|extends| R3["project/\n项目级最高优先级\n配置路径 · 分片规则"]
-        end
-
-        AGENTS["AGENTS.md — AI 代理认知框架加载器\n根目录自动注入 · 精确控制加载策略 · 必读 vs 按需参考"]
-        CTX --> AGENTS
-        RULES --> AGENTS
+    subgraph CONTENT["② 内容层"]
+        C1["context/: 描述性知识"] --> AGENTS["AGENTS.md"]
+        C2["rules/: 规约性知识"] --> AGENTS
+        C3["company→team→project"] --> C2
     end
 
-    subgraph CONSUME["③ 消费层 — AI Coding Agent 按需加载"]
-        direction LR
-        Main["Claude Code 主 Agent\n读取 AGENTS.md\n分发子 Agent 到工程目录"]
-        FEA["前端 Coding-Agent\ncontext + rules 按需加载"]
-        BEA["后端 Coding-Agent\ncontext + rules 按需加载"]
-        Strat["精确加载策略\n代码生成 → 全量 rules/\n业务分析 → 全量 context/\n混合场景 → 按模块精确加载"]
-        Main --> FEA
-        Main --> BEA
+    subgraph CONSUME["③ 消费层"]
+        Main["主Agent"] --> FEA["前端Agent"]
+        Main --> BEA["后端Agent"]
     end
 
-    Wiki -->|"AI 自动提取"| CTX
-    ADR -->|"AI/人工写入"| CTX
-    Rules -->|"人工审核"| RULES
-    CONTENT -->|"自动注入"| CONSUME
+    Wiki --> C1
+    ADR --> C1
+    Rules --> C2
+    CONTENT --> CONSUME
 ```
 
 在传统的开发范式中有一个反复出现的问题：**AI 对业务上下文的理解依赖喂给它的文档质量**。PRD描述不精确，技术方案就会有偏差；接口的内部行为约定没有显式写出来，AI 只能靠假设填补空白。这不是 AI 的能力问题，而是**知识传递问题**。
